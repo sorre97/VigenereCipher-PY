@@ -17,15 +17,15 @@ def main():
 			print("You have to set a keyword first")
 		else:
 			if choice == 2:
-				phrase = raw_input("Insert the phrase to enrypt: ")
-				encryptedString = table.encrypt(phrase, keyWord)
-				print("Original phrase: " + phrase)
-				print("Encrypted phrase: " + encryptedString)
+				word = raw_input("Insert the word to enrypt: ")
+				encryptedString = table.encrypt(word, keyWord)
+				print("Original word: " + word)
+				print("Encrypted word: " + encryptedString)
 			elif choice == 3:
-				phrase = raw_input("Insert the phrase to decrypt: ")
-				decryptedString = table.decrypt(phrase, keyWord)
-				print("Encrypted phrase: " + encryptedString)
-				print("Decrypted phrase: " + decryptedString)
+				word = raw_input("Insert the word to decrypt: ")
+				decryptedString = table.decrypt(word, keyWord)
+				print("Encrypted word: " + encryptedString)
+				print("Decrypted word: " + decryptedString)
 				
 
 def menuChoice():
