@@ -1,3 +1,5 @@
+""" Cypher matrix handler """
+
 from string import ascii_lowercase as l
 
 class CypherTable:
