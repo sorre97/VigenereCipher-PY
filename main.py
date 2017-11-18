@@ -6,23 +6,23 @@ def main():
 	keyWord = ""
 	table = CypherTable()
 	while(True):
-		sleep(0.2)
-		choice = menuChoice()
+		sleep(0.2)	# output time control
+		choice = menuChoice()	# menu printing and menu voice selecting
 		
-		if choice == 0:
+		if choice == 0:	# 0 - Quit
 			exit()
-		elif choice == 1:
+		elif choice == 1:	# 1 - Set Key
 			keyWord = changeKeyWord()
-		elif (choice == 2 or choice == 3) and keyWord == "" :
+		elif (choice == 2 or choice == 3) and keyWord == "" :	# If user wants to encrypt/decrypt but no key was set
 			print("You have to set a keyword first")
 		else:
-			if choice == 2:
-				word = raw_input("Insert the word to enrypt: ")
+			if choice == 2:		# 2 - Encrypt
+				word = raw_input("Insert the word to enrypt: ").lower()		# forcing word to encryptn lowercase
 				encryptedString = table.encrypt(word, keyWord)
 				print("Original word: " + word)
 				print("Encrypted word: " + encryptedString)
-			elif choice == 3:
-				word = raw_input("Insert the word to decrypt: ")
+			elif choice == 3:	# 3 - Decrypt
+				word = raw_input("Insert the word to decrypt: ").lower()	# forcing word to decryptn lowercase
 				decryptedString = table.decrypt(word, keyWord)
 				print("Encrypted word: " + encryptedString)
 				print("Decrypted word: " + decryptedString)
@@ -53,6 +53,7 @@ def menuChoice():
 			return switch(choice)
 
 def switch(value):
+	""" Switch value handler """
 	if value == 1:
 		return 1
 	elif value == 2:
@@ -65,7 +66,7 @@ def switch(value):
 		return -1
 
 def changeKeyWord():
-	keyWord = raw_input("Choose a keyword: ").replace(" ","").lower()
+	keyWord = raw_input("Choose a keyword: ").replace(" ","").lower()	# forcing key for encryption lowercase
 	return keyWord
 
 
