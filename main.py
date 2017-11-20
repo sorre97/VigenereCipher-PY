@@ -13,7 +13,7 @@ def main():
 			exit()
 		elif choice == 1:	# 1 - Set Key
 			keyWord = changeKeyWord()
-		elif (choice == 2 or choice == 3) and keyWord == "" :	# If user wants to encrypt/decrypt but no key was set
+		elif (choice != 1 or choice != 0) and keyWord == "" :	# If user wants to encrypt/decrypt but no key was set
 			print("You have to set a keyword first")
 		else:
 			if choice == 2:		# 2 - Encrypt
@@ -26,6 +26,21 @@ def main():
 				decryptedString = table.decrypt(word, keyWord)
 				print("Encrypted word: " + encryptedString)
 				print("Decrypted word: " + decryptedString)
+			elif choice == 4:	# 4 - Encrypt phrase
+				encryptedMessage = ""
+				phrase = raw_input("Insert a message to encrypt: ").lower()	# forcing word to decryptn lowercase
+				for word in phrase.split():
+					encryptedMessage += table.encrypt(word, keyWord) + " "
+				print encryptedMessage
+
+			elif choice == 5:	# 5 - Decrypt phrase
+				decryptedMessage = ""
+				phrase = raw_input("Insert a message to decrypt: ").lower()	# forcing word to decryptn lowercase
+				for word in phrase.split():
+					decryptedMessage += table.decrypt(word, keyWord) + " "
+				print decryptedMessage
+
+				
 				
 
 def menuChoice():
@@ -34,8 +49,10 @@ def menuChoice():
 		print("  \n*** Vigenere Cipher ***")
 		print("Select a voice from the menu")
 		print("	1 - Insert/change key word")
-		print("	2 - Encrypt the message")
-		print("	3 - Decrypt the message")
+		print("	2 - Encrypt a word")
+		print("	3 - Decrypt a word")
+		print("	4 - Encrypt a message")
+		print("	5 - Decrypt a message")
 		print("	0 - Quit")
 
 		""" User input """
@@ -60,6 +77,10 @@ def switch(value):
 		return 2
 	elif value == 3:
 		return 3
+	elif value == 4:
+		return 4
+	elif value == 5:
+		return 5
 	elif value == 0:
 		return 0
 	else:
