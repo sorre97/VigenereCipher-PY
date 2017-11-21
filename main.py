@@ -19,11 +19,15 @@ def main():
 			if choice == 2:		# 2 - Encrypt
 				word = raw_input("Insert the word to enrypt: ").lower()		# forcing word to encryptn lowercase
 				encryptedString = table.encrypt(word, keyWord)
+				print("Encrypting word...")
+				sleep(1)	# output time control
 				print("Original word: " + word)
 				print("Encrypted word: " + encryptedString)
 			elif choice == 3:	# 3 - Decrypt
 				word = raw_input("Insert the word to decrypt: ").lower()	# forcing word to decryptn lowercase
 				decryptedString = table.decrypt(word, keyWord)
+				print("Decrypting word...")
+				sleep(1)	# output time control
 				print("Encrypted word: " + encryptedString)
 				print("Decrypted word: " + decryptedString)
 			elif choice == 4:	# 4 - Encrypt phrase
@@ -31,6 +35,8 @@ def main():
 				phrase = raw_input("Insert a message to encrypt: ").lower()	# forcing word to decryptn lowercase
 				for word in phrase.split():
 					encryptedMessage += table.encrypt(word, keyWord) + " "
+				print("Encrypting message...")
+				sleep(1)	# output time control
 				print encryptedMessage
 
 			elif choice == 5:	# 5 - Decrypt phrase
@@ -38,7 +44,9 @@ def main():
 				phrase = raw_input("Insert a message to decrypt: ").lower()	# forcing word to decryptn lowercase
 				for word in phrase.split():
 					decryptedMessage += table.decrypt(word, keyWord) + " "
-				print decryptedMessage
+				print("Decrypting message...")
+				sleep(1)	# output time control
+				print decryptedMessage[: len(decryptedMessage) - 1]	#cutting space in last word
 
 				
 				
